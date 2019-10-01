@@ -1,0 +1,23 @@
+//@import "admin/stylesheet";
+@import 'admin/constants';
+@import "admin/self";
+*{
+    box-sizing: border-box;
+    font-family: 'Avenir Next Cyr',sans-serif;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html,body{
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex:1 0;
+}

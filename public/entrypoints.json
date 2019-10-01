@@ -1,0 +1,24 @@
+{
+  "entrypoints": {
+    "js/index": {
+      "js": [
+        "/admin/js/index.js"
+      ]
+    },
+    "css/material-dashboard": {
+      "css": [
+        "/admin/css/material-dashboard.css"
+      ]
+    },
+    "css/style": {
+      "css": [
+        "/admin/css/style.css"
+      ]
+    },
+    "css/admin-main": {
+      "css": [
+        "/admin/css/admin-main.css"
+      ]
+    }
+  }
+}

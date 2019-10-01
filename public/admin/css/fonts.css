@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Apercu Pro Bold";
+    src: url("../fonts/ApercuPro-Bold.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Apercu Pro - Light";
+    src: url("../fonts/ApercuPro-Light.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Apercu Pro Medium";
+    src: url("../fonts/ApercuPro-Medium.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Apercu Pro";
+    src: url("../fonts/ApercuPro-Regular.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
