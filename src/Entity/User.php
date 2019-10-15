@@ -38,6 +38,12 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $remember;
+
+    /**
      * The below length depends on the "algorithm" you use for encoding
      * the password, but this works well with bcrypt.
      *
@@ -72,9 +78,20 @@ class User implements UserInterface
         return $this->username;
     }
 
+
     public function setUsername($username)
     {
         $this->username = $username;
+    }
+
+    public function getRemember()
+    {
+        return $this->remember;
+    }
+
+    public function setRemember($remember)
+    {
+         $this->remember = $remember;
     }
 
     public function getPlainPassword()

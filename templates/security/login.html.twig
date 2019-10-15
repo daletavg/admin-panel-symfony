@@ -32,7 +32,6 @@
                             </div>
                             <div class="card-body">
                                 {{ form_start(form) }}
-                                1
                                 <input type="hidden" name="_csrf_token"
                                        value="{{ csrf_token('authenticate') }}"
                                 >
@@ -51,9 +50,16 @@
                                         </div>
                                     </div>
                                 </div>
+{#                                <div class="col-md-12">#}
+{#                                    <div class="form-group">#}
 
+{#                                        {{ form_row(form.remember,{'attr': {'class': 'form-check-input'}}) }}#}
+{#                                        {{ form_label(form.remember,'Запомнить',{'attr': {'class': 'form-check-label'}}) }}#}
+{#                                    </div>#}
+{#                                </div>#}
 
                                 <div class="row">
+
                                     <button type="submit" class="btn btn-primary login_btn col-md-6">Авторизироватся</button>
                                 </div>
                                 <div class="clearfix"></div>
