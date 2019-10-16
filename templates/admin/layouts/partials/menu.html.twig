@@ -1,0 +1,37 @@
+
+<ul class="nav pb-5 sidebar-menu dropdownMenu">
+
+
+    {% for row  in menu %}
+
+            <li class="nav-item  drop-item ">
+{#                {!! activeLink(route($row['link']),'active')!!}#}
+                {% if row.link != '' %}
+                <a class="nav-link" href="{{ path(row.link) }}">
+                {% else %}
+                    <a class="nav-link" href="">
+                {% endif %}
+                    <span class="icon-left"><i class="material-icons">{{row.icon}}</i></span>
+                    <p>{{row.name}}</p>
+                </a>
+            </li>
+    {% endfor %}
+{#    @foreach($menu as $row)#}
+{#    <li class="nav-item  drop-item {!! activeLink(route($row['link']),'active')!!}">#}
+{#        <a class="nav-link" href="{{route($row['link'])}}">#}
+{#            <span class="icon-left"><i class="material-icons">{{$row['icon']}}</i></span>#}
+{#            <p>{{$row['name']}}</p>#}
+{#        </a>#}
+{#    </li>#}
+{#    @endforeach#}
+
+
+    <li class="nav-item mt-5 text-center">
+        <form action="" method="POST">
+{#            @csrf#}
+            <button class="btn btn-primary">
+                <b>Выход</b>
+            </button>
+        </form>
+    </li>
+</ul>

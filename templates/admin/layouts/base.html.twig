@@ -21,16 +21,17 @@
     <div class="sidebar" data-color="purple" data-background-color="white"
          data-image="">
         <div class="logo text-center">
-{#            <a href="{{ route('admin.index')}}" class="simple-text logo-normal">ARTPOINT</a>#}
+            <a href=" " class="simple-text logo-normal">Admin panel</a>
 {#            <small>{{ Auth::user()->name }}</small>#}
         </div>
         <div class="sidebar-wrapper position-static">
+            {% include 'admin/layouts/partials/menu.html.twig' %}
 
-{#            @include('admin.layouts.partials.menu')#}
         </div>
     </div>
     <div class="main-panel">
-        {% include admin.layouts.partials.header.html %}
+        {% include 'admin/layouts/partials/header.html.twig' %}
+
 
         <div class="content">
             <div class="container-fluid">
@@ -38,10 +39,10 @@
                     <div class="col-10 offset-1 ">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">' TEST '</h4>
+                                <h4 class="card-title">{{ cardTitle??'' }}</h4>
                             </div>
                             <div class="card-body">
-{#                                {{ $content }}#}
+                                {% block content %}{% endblock %}
                             </div>
                         </div>
                     </div>
@@ -52,8 +53,9 @@
     </div>
 </div>
 
-{% include admin.layouts.partials.styles %}
-{% include admin.layouts.partials.scripts%}
+{% include 'admin/layouts/partials/styles.html.twig' %}
+{% include 'admin/layouts/partials/scripts.html.twig' %}
+
 
 
 

@@ -37,11 +37,11 @@ class User implements UserInterface
      */
     private $plainPassword;
 
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255,nullable=true)
-     */
-    private $remember;
+//    /**
+//     * @Assert\NotBlank()
+//     * @ORM\Column(type="string", length=255,nullable=true)
+//     */
+//    private $remember;
 
     /**
      * The below length depends on the "algorithm" you use for encoding
@@ -62,6 +62,11 @@ class User implements UserInterface
     }
 
     // other properties and methods
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getEmail()
     {
@@ -84,15 +89,15 @@ class User implements UserInterface
         $this->username = $username;
     }
 
-    public function getRemember()
-    {
-        return $this->remember;
-    }
-
-    public function setRemember($remember)
-    {
-         $this->remember = $remember;
-    }
+//    public function getRemember()
+//    {
+//        return $this->remember;
+//    }
+//
+//    public function setRemember($remember)
+//    {
+//         $this->remember = $remember;
+//    }
 
     public function getPlainPassword()
     {

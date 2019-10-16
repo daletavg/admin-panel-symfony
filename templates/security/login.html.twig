@@ -28,14 +28,13 @@
                         <div class="card">
                             <div class="card-header card-header-primary">
                                 <h4 class="card-title text-center">Авторизация</h4>
-                                <!-- <p class="card-category">Complete your profile</p> -->
+
                             </div>
                             <div class="card-body">
                                 {{ form_start(form) }}
                                 <input type="hidden" name="_csrf_token"
                                        value="{{ csrf_token('authenticate') }}"
                                 >
-                                {#                                    @csrf#}
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -57,9 +56,7 @@
 {#                                        {{ form_label(form.remember,'Запомнить',{'attr': {'class': 'form-check-label'}}) }}#}
 {#                                    </div>#}
 {#                                </div>#}
-
                                 <div class="row">
-
                                     <button type="submit" class="btn btn-primary login_btn col-md-6">Авторизироватся</button>
                                 </div>
                                 <div class="clearfix"></div>

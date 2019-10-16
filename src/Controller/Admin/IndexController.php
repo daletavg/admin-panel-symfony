@@ -7,16 +7,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AdminController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * @Route("/admin/index", name="admin_index")
      */
     public function index()
     {
-
-        $data = [];
-        $data['content'] = $this->render('admin/index/index.html.twig', [
+        $this->data['cardTitle'] = 'Главная страница';
+        return $this->render('admin/index/index.html.twig', ([
             'controller_name' => 'IndexController',
-        ]);
-        return $this->main($data);
+        ]+$this->data));
     }
 }
