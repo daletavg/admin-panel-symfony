@@ -17,7 +17,7 @@ class PasswordProfileType extends AbstractType
             ->add('password',PasswordType::class)
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Password'),
+                'first_options'  => array('label' => 'New password'),
                 'second_options' => array('label' => 'Repeat Password'),
             ))
         ;
@@ -25,8 +25,6 @@ class PasswordProfileType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => User::class,
-        ]);
+
     }
 }
