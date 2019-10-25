@@ -1,0 +1,88 @@
+{% extends 'admin/layouts/base.html.twig' %}
+{% block content %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+<div class="table-responsive">
+    <table class="table table-shopping">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Изображение</th>
+            <th>Заголовок</th>
+            <th>Малое описвние</th>
+
+            <th class="text-right">
+                <a href="{{ path('admin_news_create') }}" class="btn btn-primary">Создать</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody data-sortable-container="true" data-table="partners">
+        {% for item in items %}
+        <tr>
+
+            <th></th>
+            <td>
+                <img width="150px" src="{{ asset(item.image) }}">
+{#                {{ asset(item.image) }}#}
+
+            </td>
+            <td>
+                {{ item.title }}
+            </td>
+            <td>
+                {{ item.shortdescription }}
+            </td>
+
+            <td class="text-primary text-right">
+                <div class="dropdown menu_drop">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">menu</i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_1">
+                        <a href="{{ path('admin_news_edit',{'id':item.id}) }}" class="dropdown-item">️Редактировать</a>
+                        <form method="POST" action=""
+                              accept-charset="UTF-8"
+                              onsubmit={#"return confirm(&quot;Вы уверены что хотите удалить запись?&quot;)"#}>
+
+                            <button type="submit" class="dropdown-item">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+
+
+        </tr>
+        {% endfor %}
+        {#            @isset($items)#}
+        {#            @foreach($items as $item)#}
+        {#
+        {#            @endforeach#}
+        {#            @endisset#}
+        </tbody>
+    </table>
+</div>
+{#    @section('javascript')#}
+{#    <script type="text/javascript" defer>#}
+{#        $(document).ready(function (e) {#}
+{#            var $selectpicker = $('.selectpicker');#}
+{#            if ($selectpicker.length) $selectpicker.selectpicker();#}
+{#            //#}
+{#            $sort = sort;#}
+{#            $sort.url = '{{ route('admin.sort') }}';#}
+{#            $sort.init();#}
+{#        });#}
+{#    </script>#}
+{#    @endsection#}
+
+
+{% endblock %}

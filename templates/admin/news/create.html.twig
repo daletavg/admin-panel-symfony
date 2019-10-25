@@ -1,0 +1,32 @@
+{% extends 'admin/layouts/base.html.twig' %}
+{% block content %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form_start(form,{'attr':{'encrypt':'multipart/form-data','method':'post','action':path('admin_news_store')}}) }}
+    {{ include('admin/news/partials/form.html.twig') }}
+    <div class="row">
+        <div class="offset-md-6 col-md-6">
+            {#            <div class="form-group">#}
+            {#                <label for="images" class="control-label"></label>#}
+            {#                <input type="file" name="image" id="images" class="filestyle"#}
+            {#                       data-buttonText="Выбор изображения"#}
+            {#                       data-placeholder="Файл не выбран">#}
+            {#            </div>#}
+            {{ form_row(form.image,{'attr':{'class':'form-control','autocomplete':'off','cols':'30','rows':'10'}}) }}
+        </div>
+    </div>
+    <div class="text-right">
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+        <button class="btn btn-wide btn-danger" type="submit" name="saveClose">Сохранить и закрыть</button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

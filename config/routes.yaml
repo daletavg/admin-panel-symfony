@@ -1,3 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+#admin_news_store:
+#  path:     /admin/news/create
+#  controller: App\Controller\Admin\NewsController::store
+#  methods:   [POST]
