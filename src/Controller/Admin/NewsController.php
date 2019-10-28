@@ -12,6 +12,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -171,6 +172,25 @@ class NewsController extends AdminController
 
             return $this->redirect($this->generateUrl('admin_news'));
         }
+        return $this->redirect($this->generateUrl('admin_news'));
+    }
+
+    /**
+     * @Route("/admin/news/destroy",name="admin_news_destroy",methods="POST")
+     * @param Request $request
+     * @param NewsRepository $newsRepository
+     * @return Response
+     */
+    public function destroy(Request $request, NewsRepository $newsRepository)
+    {
+        $id = $request->request->get('id');
+//        $rep = $this->getDoctrine()->getRepository(News::class);
+        $news = $newsRepository->find($id);
+        $fileSystem =  new Filesystem();
+        $fileSystem->remove([$news->getImage()]);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($news);
+        $em->flush();
         return $this->redirect($this->generateUrl('admin_news'));
     }
 }

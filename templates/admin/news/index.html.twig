@@ -50,10 +50,10 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_1">
                         <a href="{{ path('admin_news_edit',{'id':item.id}) }}" class="dropdown-item">️Редактировать</a>
-                        <form method="POST" action=""
+                        <form method="POST" action="{{ path('admin_news_destroy') }}"
                               accept-charset="UTF-8"
-                              onsubmit={#"return confirm(&quot;Вы уверены что хотите удалить запись?&quot;)"#}>
-
+                              onsubmit="return confirm('Вы уверены что хотите удалить запись?')">
+                            <input type="hidden" value="{{ item.id }}" name="id">
                             <button type="submit" class="dropdown-item">Удалить</button>
                         </form>
                     </div>
